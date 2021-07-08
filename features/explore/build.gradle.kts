@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-//    implementation(Dependencies.kotlinStdLibrary)
+    modulesForFeatureModules().forEach { implementation(project(it)) }
     common()
     ktxs()
     dagger()

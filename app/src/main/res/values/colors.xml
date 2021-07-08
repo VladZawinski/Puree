@@ -5,6 +5,16 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    <color name="kelly_green">#63c132</color>
+    <color name="kelly_green_light">#97f464</color>
+    <color name="kelly_green_dark">#2a9000</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
+    <color name="outline_button_color">#DEDEDE</color>
+    <color name="common_grey">#A6A6A6</color>
+
 </resources>

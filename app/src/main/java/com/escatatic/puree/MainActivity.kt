@@ -1,11 +1,21 @@
 package com.escatatic.puree
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.escatatic.core.base.ViewBindingActivity
+import com.escatatic.puree.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity(
+    override val layoutRes: Int = R.layout.activity_main
+) : ViewBindingActivity<ActivityMainBinding>() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        makeStatusBarWhite()
+        viewBinding.bottomNavigationView.setupWithNavController(findNavController(R.id.mainNavHostFragment))
+
     }
 }

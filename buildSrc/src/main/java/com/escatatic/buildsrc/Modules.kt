@@ -11,3 +11,9 @@ object Modules {
     const val FEATURE_PLAN = ":features:plan"
     const val FEATURE_PROFILE = ":features:profile"
 }
+
+fun modulesForFeatureModules() = listOf<String>(
+    Modules.CORE,
+    Modules.DOMAIN,
+    Modules.NAVIGATION
+)

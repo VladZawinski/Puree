@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="BottomNavigationStyle">
+        <item name="android:fontFamily">@font/product_sans</item>
+        <item name="android:textFontWeight" tools:targetApi="p">800</item>
+    </style>
+</resources>

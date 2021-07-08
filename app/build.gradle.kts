@@ -53,7 +53,6 @@ dependencies {
     implementation(project(Modules.DATA))
     implementation(project(Modules.NAVIGATION))
 
-//    implementation(Dependencies.kotlinStdLibrary)
     common()
     ktxs()
     dagger()
