@@ -41,6 +41,10 @@ android {
         dataBinding = true
     }
 
+    kapt {
+        correctErrorTypes = true
+    }
+
 }
 
 dependencies {
@@ -57,4 +61,6 @@ dependencies {
     ktxs()
     dagger()
     navigation()
+    retrofit()
+    uniFlow()
 }

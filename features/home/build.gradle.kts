@@ -5,6 +5,7 @@ plugins {
     id(com.escatatic.buildsrc.Plugins.kotlinAndroid)
     id(com.escatatic.buildsrc.Plugins.kotlinKapt)
     id(com.escatatic.buildsrc.Plugins.hiltPlugin)
+    id(com.escatatic.buildsrc.Plugins.butterKnife)
 }
 
 android {
@@ -46,5 +47,7 @@ dependencies {
     ktxs()
     dagger()
     epoxy()
+    uniFlow()
+
 
 }

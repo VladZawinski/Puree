@@ -43,6 +43,7 @@ android {
 dependencies {
 //    implementation(Dependencies.kotlinStdLibrary)
     implementation(project(Modules.DOMAIN))
+    implementation(Dependencies.KAHelperRetrofit)
     common()
     ktxs()
     dagger()

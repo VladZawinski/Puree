@@ -41,7 +41,9 @@ android {
 }
 
 dependencies {
-//    implementation(Dependencies.kotlinStdLibrary)
+    implementation(project(Modules.DATA))
+    implementation(project(Modules.DOMAIN))
+    retrofit()
     common()
     ktxs()
     dagger()

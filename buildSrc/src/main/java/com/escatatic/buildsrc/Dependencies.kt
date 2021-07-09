@@ -9,6 +9,7 @@ object ProjectPlugin {
     const val gradlePlugin = "com.android.tools.build:gradle:${Versions.gradlePlugins}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinGradle}"
     const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:2.36"
+    const val butterKnife = "com.jakewharton:butterknife-gradle-plugin:10.1.0"
 }
 
 object Plugins {
@@ -17,6 +18,7 @@ object Plugins {
     const val kotlinKapt = "kotlin-kapt"
     const val androidLibrary = "com.android.library"
     const val hiltPlugin = "dagger.hilt.android.plugin"
+    const val butterKnife = "com.jakewharton.butterknife"
 }
 
 object Apps {
@@ -38,6 +40,7 @@ object Versions {
     const val coreKtx = "1.5.0"
     const val fragmentKtx = "1.3.5"
     const val viewModelKtx = "2.4.0-alpha02"
+    const val lifecycleKtx = "2.4.0-alpha02"
     const val appCompact = "1.3.0"
     const val material = "1.3.0"
     const val constraintLayout = "2.0.4"
@@ -47,6 +50,8 @@ object Versions {
     const val epoxy = "4.6.2"
     const val retrofit = "2.7.1"
     const val KAHelperRetrofit = "3.0.5"
+    const val orbitMVI = "4.1.1"
+    const val uniFlow = "1.0.9"
 }
 
 object Dependencies {
@@ -55,6 +60,7 @@ object Dependencies {
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
     const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelKtx}"
+    const val lifeCycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleKtx}"
 
     const val appCompact = "androidx.appcompat:appcompat:${Versions.appCompact}"
     const val material = "com.google.android.material:material:${Versions.material}"
@@ -71,12 +77,21 @@ object Dependencies {
     const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0"
 
     const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
+    const val epoxyDataBinding = "com.airbnb.android:epoxy-databinding:${Versions.epoxy}"
     const val epoxyCompiler = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
 
     const val KAHelperRetrofit = "com.github.FunkyMuse.KAHelpers:retrofit:${Versions.KAHelperRetrofit}"
+
+    const val orbitMVICore = "org.orbit-mvi:orbit-core:${Versions.orbitMVI}"
+    const val orbitMVIViewModel = "org.orbit-mvi:orbit-viewmodel:${Versions.orbitMVI}"
+
+    const val uniFlowCore = "org.uniflow-kt:uniflow-core:${Versions.uniFlow}"
+    const val uniFlowAndroid = "org.uniflow-kt:uniflow-android:${Versions.uniFlow}"
+
+    const val timber = "com.jakewharton.timber:timber:4.7.1"
 
     const val jUnit = "junit:junit:${Versions.jUnit}"
     const val jUnitExts = "androidx.test.ext:junit:${Versions.jUnitExts}"
@@ -90,10 +105,22 @@ fun DependencyHandler.common(){
     testImpl(Dependencies.jUnit)
     androidTestImpl(Dependencies.jUnitExts)
     androidTestImpl(Dependencies.espresso)
+    implementation(Dependencies.timber)
+}
+
+fun DependencyHandler.orbitMVI(){
+    implementation(Dependencies.orbitMVICore)
+    implementation(Dependencies.orbitMVIViewModel)
+}
+
+fun DependencyHandler.uniFlow(){
+    implementation(Dependencies.uniFlowCore)
+    implementation(Dependencies.uniFlowAndroid)
 }
 
 fun DependencyHandler.epoxy(){
     implementation(Dependencies.epoxy)
+    implementation(Dependencies.epoxyDataBinding)
     kapt(Dependencies.epoxyCompiler)
 }
 
@@ -118,6 +145,7 @@ fun DependencyHandler.ktxs(){
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.fragmentKtx)
     implementation(Dependencies.viewModelKtx)
+    implementation(Dependencies.lifeCycleKtx)
 }
 
 fun DependencyHandler.navigation(){
