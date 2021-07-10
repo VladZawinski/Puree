@@ -1,4 +1,4 @@
-package com.escatatic.core.di
+package com.escatatic.puree.di
 
 import com.escatatic.data.repositories.HomeRepositoryImpl
 import com.escatatic.domain.repositories.HomeRepository

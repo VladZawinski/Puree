@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/features/home" />
             <option value="$PROJECT_DIR$/features/plan" />
             <option value="$PROJECT_DIR$/features/profile" />
+            <option value="$PROJECT_DIR$/features/recipe-detail" />
             <option value="$PROJECT_DIR$/navigation" />
           </set>
         </option>

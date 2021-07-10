@@ -6,6 +6,7 @@ plugins {
     id(com.escatatic.buildsrc.Plugins.kotlinKapt)
     id(com.escatatic.buildsrc.Plugins.hiltPlugin)
     id(com.escatatic.buildsrc.Plugins.butterKnife)
+    id(com.escatatic.buildsrc.Plugins.safeArgs)
 }
 
 android {
@@ -43,11 +44,13 @@ android {
 
 dependencies {
     modulesForFeatureModules().forEach { implementation(project(it)) }
+    implementation(Dependencies.insetter)
     common()
     ktxs()
     dagger()
     epoxy()
+    orbitMVI()
     uniFlow()
-
+    glide()
 
 }

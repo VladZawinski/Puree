@@ -1,10 +1,11 @@
 import com.escatatic.buildsrc.*;
 
 plugins {
-    id(com.escatatic.buildsrc.Plugins.androidApplication)
+    id(com.escatatic.buildsrc.Plugins.androidLibrary)
     id(com.escatatic.buildsrc.Plugins.kotlinAndroid)
     id(com.escatatic.buildsrc.Plugins.kotlinKapt)
     id(com.escatatic.buildsrc.Plugins.hiltPlugin)
+    id(com.escatatic.buildsrc.Plugins.butterKnife)
     id(com.escatatic.buildsrc.Plugins.safeArgs)
 }
 
@@ -15,9 +16,6 @@ android {
     defaultConfig {
         minSdk = Apps.minSdk
         targetSdk = Apps.targetSdk
-        applicationId = Apps.appId
-        versionCode = Apps.versionCode
-        versionName = Apps.versionName
 
         testInstrumentationRunner = Apps.jUnitRunner
     }
@@ -42,27 +40,16 @@ android {
         dataBinding = true
     }
 
-    kapt {
-        correctErrorTypes = true
-    }
-
 }
 
 dependencies {
-    implementation(project(Modules.CORE))
-    implementation(project(Modules.FEATURE_EXPLORE))
-    implementation(project(Modules.FEATURE_HOME))
-    implementation(project(Modules.FEATURE_PLAN))
-    implementation(project(Modules.FEATURE_PROFILE))
-    implementation(project(Modules.DOMAIN))
-    implementation(project(Modules.DATA))
-    implementation(project(Modules.NAVIGATION))
-    implementation(project(Modules.FEATURE_RECIPE_DETAIL))
-
+    modulesForFeatureModules().forEach { implementation(project(it)) }
+    implementation(Dependencies.insetter)
     common()
     ktxs()
     dagger()
-    navigation()
-    retrofit()
-    uniFlow()
+    epoxy()
+    orbitMVI()
+    glide()
+
 }

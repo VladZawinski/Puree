@@ -10,6 +10,7 @@ object ProjectPlugin {
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinGradle}"
     const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:2.36"
     const val butterKnife = "com.jakewharton:butterknife-gradle-plugin:10.1.0"
+    const val safeArgPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
 }
 
 object Plugins {
@@ -19,6 +20,7 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val hiltPlugin = "dagger.hilt.android.plugin"
     const val butterKnife = "com.jakewharton.butterknife"
+    const val safeArgs = "androidx.navigation.safeargs.kotlin"
 }
 
 object Apps {
@@ -52,6 +54,8 @@ object Versions {
     const val KAHelperRetrofit = "3.0.5"
     const val orbitMVI = "4.1.1"
     const val uniFlow = "1.0.9"
+    const val glide = "4.12.0"
+    const val insetter = "0.6.0"
 }
 
 object Dependencies {
@@ -93,6 +97,11 @@ object Dependencies {
 
     const val timber = "com.jakewharton.timber:timber:4.7.1"
 
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+
+    const val insetter = "dev.chrisbanes.insetter:insetter:${Versions.insetter}"
+
     const val jUnit = "junit:junit:${Versions.jUnit}"
     const val jUnitExts = "androidx.test.ext:junit:${Versions.jUnitExts}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
@@ -133,6 +142,11 @@ fun DependencyHandler.dagger(){
         kapt(hiltCompiler)
         kapt(androidHiltCompiler)
     }
+}
+
+fun DependencyHandler.glide(){
+    implementation(Dependencies.glide)
+    kapt(Dependencies.glideCompiler)
 }
 
 fun DependencyHandler.retrofit(){

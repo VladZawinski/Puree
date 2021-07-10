@@ -40,6 +40,5 @@ android {
 }
 
 dependencies {
-//    implementation(Dependencies.kotlinStdLibrary)
     navigation()
 }

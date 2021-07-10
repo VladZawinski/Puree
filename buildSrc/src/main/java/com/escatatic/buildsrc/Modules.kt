@@ -10,6 +10,7 @@ object Modules {
     const val FEATURE_EXPLORE = ":features:explore"
     const val FEATURE_PLAN = ":features:plan"
     const val FEATURE_PROFILE = ":features:profile"
+    const val FEATURE_RECIPE_DETAIL = ":features:recipe-detail"
 }
 
 fun modulesForFeatureModules() = listOf<String>(
