@@ -47,6 +47,7 @@ dependencies {
     implementation(Dependencies.insetter)
     common()
     ktxs()
+    navigation()
     dagger()
     epoxy()
     orbitMVI()

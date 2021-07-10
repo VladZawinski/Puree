@@ -5,13 +5,16 @@ import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.TypedEpoxyController
 import com.escatatic.domain.models.home.HomeListItem
+import com.escatatic.home.epoxy.listeners.OnRecipeItemClickListener
 import com.escatatic.home.epoxy.models.HeaderModel
 import com.escatatic.home.epoxy.models.HeaderModel_
 import com.escatatic.home.epoxy.models.LabelModel_
 import com.escatatic.home.epoxy.models.RecipeModel_
 import timber.log.Timber
 
-class HomeEpoxyController: AsyncEpoxyController() {
+class HomeEpoxyController(
+    private val clickListener: OnRecipeItemClickListener
+): AsyncEpoxyController() {
 
     private var data = emptyList<HomeListItem>()
 
@@ -20,7 +23,6 @@ class HomeEpoxyController: AsyncEpoxyController() {
     }
 
     override fun buildModels() {
-        Timber.d("Building")
         data.map { section ->
             when(section.type){
                 ViewTypes.CAROUSEL -> {
@@ -42,6 +44,7 @@ class HomeEpoxyController: AsyncEpoxyController() {
                     val items = section.item.map {  recipe ->
                         RecipeModel_()
                             .id(recipe.id)
+                            .onRecipeClick(clickListener)
                             .recipe(recipe)
 
                     }

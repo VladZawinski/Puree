@@ -2,33 +2,34 @@ package com.escatatic.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.escatatic.core.base.BundleKeys
 import com.escatatic.core.base.ViewBindingFragment
 import com.escatatic.home.databinding.FragmentHomeBinding
 import com.escatatic.home.epoxy.MarginItemDecoration
 import com.escatatic.home.epoxy.controllers.HomeEpoxyController
+import com.escatatic.home.epoxy.listeners.OnRecipeItemClickListener
 import com.escatatic.home.viewstates.HomeSideEffect
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import javax.inject.Inject
 
 
 class HomeFragment(
     override val layoutRes: Int = R.layout.fragment_home
-) : ViewBindingFragment<FragmentHomeBinding>(){
+) : ViewBindingFragment<FragmentHomeBinding>(), OnRecipeItemClickListener{
 
     private val viewModel by viewModels<HomeViewModel>()
 
-    private val sectionController = HomeEpoxyController()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        activity?.window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-    }
+    private val sectionController = HomeEpoxyController(this)
 
     @InternalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,5 +59,12 @@ class HomeFragment(
                 }
         }
 
+    }
+
+    override fun onRecipeClick(recipeId: String) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_recipeDetailFragment,
+            bundleOf(BundleKeys.BUNDLE_RECIPE_ID to recipeId)
+        )
     }
 }

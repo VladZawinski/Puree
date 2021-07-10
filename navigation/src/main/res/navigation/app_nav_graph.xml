@@ -10,14 +10,7 @@
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_recipeDetailFragment"
-            app:destination="@id/recipeDetailFragment" >
-
-            <argument
-                android:name="recipeId"
-                app:argType="String"
-                app:nullable="true"
-                android:defaultValue="null"/>
-        </action>
+            app:destination="@id/recipeDetailFragment"/>
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
@@ -34,11 +27,5 @@
     <fragment
         android:id="@+id/recipeDetailFragment"
         android:name="com.escatatic.recipe_detail.RecipeDetailFragment"
-        android:label="RecipeDetailFragment" >
-        <argument
-            android:name="recipeId"
-            app:argType="String"
-            app:nullable="true"
-            android:defaultValue="null"/>
-    </fragment>
+        android:label="RecipeDetailFragment"/>
 </navigation>
