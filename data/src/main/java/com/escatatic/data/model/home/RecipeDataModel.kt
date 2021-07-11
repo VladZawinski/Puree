@@ -5,10 +5,10 @@ import com.escatatic.domain.models.home.Recipe
 import com.squareup.moshi.Json
 
 data class RecipeDataModel(
-    @field:Json(name = "_id")
+    @Json(name = "_id")
     val id: String,
     val title: String,
-    @field:Json(name = "heroImage")
+    @Json(name = "heroImage")
     val coverImage: String,
     val createdAt: String
 ): Mapper<Recipe> {

@@ -56,6 +56,7 @@ object Versions {
     const val uniFlow = "1.0.9"
     const val glide = "4.12.0"
     const val insetter = "0.6.0"
+    const val moshiCodeGen = "1.12.0"
 }
 
 object Dependencies {
@@ -86,6 +87,9 @@ object Dependencies {
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val moshiCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiCodeGen}"
+    const val moshiAdapter = "com.squareup.moshi:moshi-adapters:1.12.0"
+    const val moshi = "com.squareup.moshi:moshi-kotlin:1.12.0"
 
     const val KAHelperRetrofit = "com.github.FunkyMuse.KAHelpers:retrofit:${Versions.KAHelperRetrofit}"
 
@@ -153,6 +157,9 @@ fun DependencyHandler.retrofit(){
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitMoshi)
     implementation(Dependencies.KAHelperRetrofit)
+    kapt(Dependencies.moshiCodeGen)
+    implementation(Dependencies.moshiAdapter)
+    implementation(Dependencies.moshi)
 }
 
 fun DependencyHandler.ktxs(){

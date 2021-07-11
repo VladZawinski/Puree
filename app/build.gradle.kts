@@ -59,6 +59,8 @@ dependencies {
     implementation(project(Modules.NAVIGATION))
     implementation(project(Modules.FEATURE_RECIPE_DETAIL))
 
+    implementation(Dependencies.moshiAdapter)
+    orbitMVI()
     common()
     ktxs()
     dagger()

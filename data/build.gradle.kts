@@ -44,6 +44,7 @@ dependencies {
 //    implementation(Dependencies.kotlinStdLibrary)
     implementation(project(Modules.DOMAIN))
     implementation(Dependencies.KAHelperRetrofit)
+    implementation(Dependencies.moshiAdapter)
     common()
     ktxs()
     dagger()
